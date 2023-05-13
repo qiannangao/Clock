@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root{
+            background-color: rgb(145, 170, 207);
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        /* 钟表盘 */
+        .clock{
+            width: 350px;
+            height: 350px;
+            background-color:  rgba(250, 200, 200, .9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 -1em 1em rgba(0, 0, 0, 0.3) inset,
+                0 0.5em 1em rgba(255, 255, 255, 0.1) inset,
+                0 -0.5em 1em rgba(255, 255, 255, 0.2),
+                0 1em 1em rgba(0, 0, 0, 0.3);
+        }
+        /* 钟中心点 */
+        .clock:before{
+            content:'';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0.1em 0.1em rgba(255, 255, 255, 0.3) inset,
+                0 -0.1em 0.1em rgba(0, 0, 0, 0.3) inset,
+                0 0.2em 0.2em rgba(0, 0, 0, 0.3);
+        }
+        .clock:after{
+            content: '';
+            display: block;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 1em 0.5em rgb(0, 0, 0) inset,
+                0 -0.5em 1em 0.5em rgba(0, 0, 0, 0.8);
+                width: 250px;
+                height: 250px;
+                background-color: rgb(226,214,214);
+                z-index: -10;
+        }
+        /* 指针 */
+         .hour,.min,.sec{
+            position: absolute;
+        }
+        .hour,.hr{
+            width: 160px;
+            height: 160px;
+        }
+       .min,.mn{
+            width: 190px;
+            height: 190px;
+        }
+       .sec,.sc{
+            width: 230px;
+            height: 230px;
+        }
+        .hr,.mn,.sc{
+            display: flex;
+            justify-content: center;
+            position: absolute;
+        }
+          /* 时针最短，秒针最长 */
+        .hr::before{
+            content: '';
+            width: 14px;
+            height: 70px;
+            z-index: 10;
+            border-radius: 6px;
+            background-color: purple;
+        }
+        .mn::before{
+            content: '';
+            width: 12px;
+            height: 90px;
+            z-index: 11;
+            border-radius: 6px;
+            background-color:yellow;
+        }
+        .sc::before{
+            content: '';
+            width: 10px;
+            height: 100px;
+            z-index: 12;
+            border-radius: 6px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour">
+            <div class="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc"></div>
+        </div>
+    </div>
+    <script src="./style.js"></script>
+</body>
+</html>
